@@ -45,5 +45,10 @@ spark_job = SparkSubmitOperator(
     dag=dag)
 
 end = DummyOperator(task_id="end", dag=dag)
+<<<<<<< HEAD
 #shebzul
 start >> spark_job >> end
+=======
+
+start >> spark_job >> end
+>>>>>>> 5b6ae7318e079bac9fd7f0734e83d2e53e053aff
