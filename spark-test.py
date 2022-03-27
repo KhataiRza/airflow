@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 spark_master = "spark://172.18.0.5:7077"
 spark_app_name = "SparkHelloWorld"
 file_path = "/opt/airflow/airflow.cfg"
-
+#no conflict Ramiz
 ###############################################
 # DAG Definition
 ###############################################
