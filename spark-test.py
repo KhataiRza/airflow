@@ -30,11 +30,10 @@ default_args = {
 }
 
 dag = DAG(
-        dag_id="spark-test", 
+        dag_id="spark-test",
         description="This DAG runs a simple Pyspark app.",
-        default_args=default_args, 
-        schedule_interval=timedelta(1)
-    )
+        default_args=default_args,
+        schedule_interval=timedelta(1))
 
 start = DummyOperator(task_id="start", dag=dag)
 
@@ -42,7 +41,8 @@ start = DummyOperator(task_id="start", dag=dag)
 
 spark_job = SparkSubmitOperator(
     task_id="spark_job",
-    application="/opt/airflow/spark_apps/hello-world.py", # Spark application path created in airflow and spark cluster
+    #  Spark application path created in airflow and spark cluster
+    application="/opt/airflow/spark_apps/hello-world.py", 
     name=spark_app_name,
     conn_id="spark_default",
     verbose=False,
