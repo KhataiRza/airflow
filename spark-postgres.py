@@ -1,5 +1,5 @@
-#03262022 Ramiz
-#03262022 Xetai
+# 03262022 Ramiz
+# 03262022 Xetai
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
@@ -33,9 +33,9 @@ default_args = {
     "retry_delay": timedelta(minutes=1)
 }
 
-dag = DAG(
-        dag_id="spark-postgres", 
-        description="This DAG is a sample of integration between Spark and DB. It reads CSV files, load them into a Postgres DB and then read them from the same Postgres DB.",
+dag = DAG(dag_id="spark-postgres", 
+        description="This DAG is a sample of integration between Spark and DB. It reads CSV files,
+                     load them into a Postgres DB and then read them from the same Postgres DB.",
         default_args=default_args, 
         schedule_interval=timedelta(1)
     )
