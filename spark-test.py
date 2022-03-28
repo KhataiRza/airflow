@@ -1,11 +1,11 @@
 
-#Ramiz_branch
-#khatai branch
+# Ramiz_branch
+# khatai branch
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 from datetime import datetime, timedelta
-#no conflict khatai
+# no conflict khatai
 ###############################################
 # Parameters
 ###############################################
@@ -38,7 +38,7 @@ dag = DAG(
 
 start = DummyOperator(task_id="start", dag=dag)
 
-#spark_job = DummyOperator(task_id="spark_job", dag=dag)
+# spark_job = DummyOperator(task_id="spark_job", dag=dag)
 
 spark_job = SparkSubmitOperator(
     task_id="spark_job",
@@ -46,10 +46,10 @@ spark_job = SparkSubmitOperator(
     name=spark_app_name,
     conn_id="spark_default",
     verbose=False,
-    #conf={"spark.master":spark_master},
+    # conf={"spark.master":spark_master},
     application_args=[file_path],
     dag=dag)
 
 end = DummyOperator(task_id="end", dag=dag)
 
-start >> spark_job >>end
+start >> spark_job >> end
